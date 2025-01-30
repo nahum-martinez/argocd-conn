@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tigo-oss-adm-parameters
+  labels:
+    app: tigo-oss-adm-parameters
+  namespace: tigo-oss-nexus
+data:
+  SERVER_PORT: "3038"
+  API_BASE: '192.168.162.19'
+  API_SERVER: "parameters-controller/v1/"
+  POSTGRES_HOST: "192.168.105.106"
+  POSTGRES_PORT: "5432"
+  POSTGRES_DATABASE: "nexus2bdqa"
+  POSTGRES_USER: "nexus"
+  POSTGRES_PASSWORD: "Tigo2024$"
+#binaryData:
+  #postgres_user_e: bmV4dXMK
+  #postgres_password_e: VGlnbzIwMjQkCg==

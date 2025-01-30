@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tigo-oss-adm-parameters
+  labels:
+    app: tigo-oss-adm-parameters
+  namespace: tigo-oss-nexus
+spec:
+  selector:
+    matchLabels:
+      app: tigo-oss-adm-parameters
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tigo-oss-adm-parameters
+    spec:
+      imagePullSecrets:
+      - name: my-registry-secret
+      containers:
+      - name: tigo-oss-adm-parameters
+        image: 192.168.162.19:8085/tigo-oss-adm-parameters:v1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3038
+        resources:
+          limits:
+            memory: 612Mi
+            cpu: "550m"
+            ephemeral-storage: "612Mi"
+          requests:
+            memory: 556Mi
+            cpu: "400m"
+            ephemeral-storage: "256Mi"
+        envFrom:
+          - configMapRef:
+              name: tigo-oss-adm-parameters
+          #- secretRef:
+          #    name: tigo-oss-adm-parameters
+                    
+          

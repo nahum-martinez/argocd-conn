@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tigo-oss-adm-parameters
+  namespace: tigo-oss-nexus
+spec:
+  selector:
+    app: tigo-oss-adm-parameters
+  ports:
+    - protocol: TCP
+      port: 3038
+      targetPort: 3038
+      nodePort: 30083
+  type: NodePort
